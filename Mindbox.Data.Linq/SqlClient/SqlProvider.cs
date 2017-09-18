@@ -407,14 +407,7 @@ namespace System.Data.Linq.SqlClient {
         }
 
         private static DbProviderFactory GetProvider(string providerName) {
-            bool hasProvider = 
-                DbProviderFactories.GetFactoryClasses().Rows.OfType<DataRow>()
-                .Select(r => (string)r["InvariantName"])
-                .Contains(providerName, StringComparer.OrdinalIgnoreCase);
-            if (hasProvider) {
-                return DbProviderFactories.GetFactory(providerName);
-            }
-            return null;
+            return DbProviderFactories.GetFactory(providerName);
         }
 
         #region Dispose\Finalize

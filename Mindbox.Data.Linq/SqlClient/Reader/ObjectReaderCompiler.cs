@@ -44,6 +44,9 @@ namespace System.Data.Linq.SqlClient
 			return iCaptureId++;
 		}
 
+/*
+ * TODO: интересная штука, зачем-то для дебага
+ * 
 		[ResourceExposure(ResourceScope.Machine)] // filename parameter later used by other methods.
 		internal static void StartCaptureToFile(string filename)
 		{
@@ -70,6 +73,7 @@ namespace System.Data.Linq.SqlClient
 				captureAssembly = null;
 			}
 		}
+*/
 
 		internal static void SetMaxReaderCacheSize(int size)
 		{
@@ -226,7 +230,9 @@ namespace System.Data.Linq.SqlClient
 	                typeof(ObjectMaterializer<>).MakeGenericType(dataReaderType)
                 });
 			gen.GenerateBody(mb.GetILGenerator(), (SqlExpression)SqlDuplicator.Copy(expression));
-			tb.CreateType();
+
+			// tb.CreateType();
+			tb.CreateTypeInfo();
 		}
 
 #endif

@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Linq.Mapping;
+﻿using System.Data.Linq.Mapping;
 using System.Data.Linq.SqlClient;
 using System.Reflection;
 using Mindbox.Data.Linq.Mapping;

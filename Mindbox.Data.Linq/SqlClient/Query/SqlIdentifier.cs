@@ -1,15 +1,8 @@
-using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Linq.Mapping;
-using System.Data.Linq.Provider;
-using System.Data.SqlClient;
-using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
-namespace System.Data.Linq.SqlClient {
+namespace System.Data.Linq.SqlClient
+{
 
     internal static class SqlIdentifier
     {
@@ -30,7 +23,7 @@ namespace System.Data.Linq.SqlClient {
                 return false;
             }
 
-            return s.StartsWith(QuotePrefix, StringComparison.Ordinal)
+			return s.StartsWith(QuotePrefix, StringComparison.Ordinal)
                 && s.EndsWith(QuoteSuffix, StringComparison.Ordinal);
         }
 

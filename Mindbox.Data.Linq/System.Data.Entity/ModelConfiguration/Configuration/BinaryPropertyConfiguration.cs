@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection;
+﻿using System.Reflection;
 using ColumnAttribute = System.Data.Linq.Mapping.ColumnAttribute;
 
 namespace System.Data.Entity.ModelConfiguration.Configuration

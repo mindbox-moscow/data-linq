@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Linq.Mapping;
+﻿using System.Data.Linq.Mapping;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;

@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mindbox.Data.Linq.Tests</RootNamespace>
     <AssemblyName>Mindbox.Data.Linq.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -16,6 +16,7 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -94,13 +95,13 @@
     <Compile Include="TrackedObjectLofFormatterTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mindbox.Data.Linq\Mindbox.Data.Linq.csproj">
-      <Project>{47ee70c4-ff67-4810-9ac6-d72a61aba852}</Project>
-      <Name>Mindbox.Data.Linq</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\Mindbox.Data.Linq\Mindbox.Data.Linq.csproj">
+      <Project>{0bb4885a-1db9-405d-b323-1bc0ecf78278}</Project>
+      <Name>Mindbox.Data.Linq</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

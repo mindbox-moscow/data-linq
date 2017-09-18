@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace System.Data.Entity.ModelConfiguration.Configuration
 {
