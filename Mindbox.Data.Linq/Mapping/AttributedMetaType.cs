@@ -38,6 +38,7 @@ namespace System.Data.Linq.Mapping
 		private MetaType inheritanceBase;
 		private ReadOnlyCollection<MetaType> derivedTypes;
 		private ReadOnlyCollection<MetaAssociation> associations;
+		bool? canPossiblyInferDelete;
 		private bool areMethodsInitialized;
 		private bool hasAnyLoadMethod;
 		private bool hasAnyValidateMethod;
@@ -233,6 +234,27 @@ namespace System.Data.Linq.Mapping
 			get { return identities; }
 		}
 
+		public override bool CanPossiblyInferDelete
+		{
+			get
+			{
+				if (this.canPossiblyInferDelete != null)
+					return canPossiblyInferDelete.Value;
+
+				var preloadedAssociations = this.Associations;
+				lock (metaTypeLock)
+				{
+					canPossiblyInferDelete = preloadedAssociations.Any(f =>
+						f.DeleteOnNull &&
+						f.IsForeignKey &&
+						!f.IsNullable &&
+						!f.IsMany);
+				}
+
+				return canPossiblyInferDelete.Value;
+			}
+		}
+
 		public override ReadOnlyCollection<MetaAssociation> Associations 
 		{
 			get 
@@ -397,7 +419,7 @@ namespace System.Data.Linq.Mapping
 		{
 			if (dataMembers == null)
 			{
-				dataMemberMap = new Dictionary<MetaPosition, MetaDataMember>();
+				dataMemberMap = new Dictionary<MetaPosition, MetaDataMember>(new MetaPosition());
 
 				var ordinal = 0;
 				const BindingFlags flags = 
